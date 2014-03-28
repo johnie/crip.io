@@ -1,0 +1,9 @@
+name: Crip as a Service
+markdown: redcarpet
+pygments: true
+
+include: ['.htaccess']
+
+keep_files: ['.git']
+
+
