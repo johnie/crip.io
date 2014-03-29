@@ -1,9 +1,13 @@
 name: Crip as a Service
-markdown: redcarpet
+markdown: rdiscount
+rdiscount:
+  extensions: [smart]
 pygments: true
+permalink: /:categories/:title
 
 include: ['.htaccess']
 
 keep_files: ['.git']
 
-
+post_types:
+  - profiles

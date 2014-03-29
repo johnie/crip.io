@@ -1,0 +1,287 @@
+/*------------------------------------* 
+   $MAIN 
+*------------------------------------*/
+
+if $global-border-box
+  *, *:before, *:after
+    vendor('box-sizing', border-box)
+
+html, body, .site
+  position relative
+  width 100%
+  height 100%
+
+body
+  overflow-y scroll
+  background-color #f9f9f9
+  font-size $base-font-size
+  line-height $base-line-height
+  font-family $base-font-family
+  color #111
+
+.profiles
+  position relative
+  overflow-x hidden
+  min-height 100%
+  width 100%
+
+/** 
+ * Intro sides 
+ */
+
+.side
+  position fixed
+  top 0
+  z-index 100
+  width 50%
+  height 100%
+  text-align center
+  -webkit-backface-visibility: hidden;
+  color #111
+
+.open-left .side, .open-right .side
+  cursor default
+
+.overlay
+  position absolute
+  top 0
+  left 0
+  z-index 110
+  visibility hidden
+  width 100%
+  height 100%
+  opacity 0
+
+.side-left .overlay
+  background-color red
+
+.side-right .overlay
+  background-color red
+
+.side-left
+  left 0
+
+.side-right
+  right 0
+
+/** 
+ * Intro content, profile image and name, back button 
+ */
+
+.intro-content
+  position absolute
+  top 50%
+  left 50%
+  padding 0 1em
+  width 60%
+  cursor pointer
+  vendor('transform', translateY(-50%) translateX(-50%));
+
+.profile__img
+  margin 0 auto
+  width 150px
+  height 150px
+  vendor('border-radius', 50%)
+  background-color $brand-color--darken
+  
+  img
+    max-width 100%
+    vendor('border-radius', 50%)
+    opacity 0.8
+
+.intro-content span
+  display block
+  white-space nowrap
+
+.profile__name
+  font-weight 300
+  font-size 1em
+  margin 0
+  color $brand-color--darken
+  text-transform uppercase
+  font-weight 500
+  letter-spacing 1px
+
+.profile__role
+  font-weight 300
+  color $brand-color
+  position relative
+  font-size 0.6em
+  margin 0
+  padding 0.7em
+  text-transform uppercase
+  background: -webkit-linear-gradient($brand-color, $brand-color--lighten);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+/** 
+ * Arrows 
+ */
+
+.back
+  position fixed
+  top 2em
+  z-index 500
+  display block
+  width 50px
+  height 50px
+  color $brand-color--darken
+  text-align center
+  font-size 28px
+  line-height 44px
+  pointer-events none
+  text-decoration none
+  visibility hidden
+  opacity 0
+
+  &:hover
+    color $brand-color
+
+.mobile-layout .back
+  position absolute
+
+.back-left
+  left 12.5%
+  vendor('transform', translateX(-50%))
+
+.back-right
+  right 12.5%
+  vendor('transform', translateX(50%))
+
+.open-right .back-left, .open-left .back-right
+  visibility visible
+  opacity 1
+  vendor('transition-delay', 0.3s)
+  pointer-events auto
+
+/** 
+ * Pages 
+ */
+
+.page
+  position relative
+  top 0
+  overflow auto
+  min-height 100%
+  width 75%
+  height auto
+  font-size 1.4em
+  vendor('backface-visibility', hidden)
+
+.page-right
+  left 25%
+  vendor('transform', translateX(100%))
+
+.page-left
+  left 0
+  text-align right
+  vendor('transform', translateX(-100%))
+
+/** 
+ * Inner page content 
+ */
+
+.page-inner
+  padding 2em
+
+.page-inner section
+  padding-bottom 1em
+
+.page-inner h2
+  margin 0 0 1em 0
+  font-weight 500
+  font-size 2.4em
+  color $brand-color--darken
+
+.page-inner p
+  font-weight 300
+  font-size 1.2em
+  color #777
+
+/** 
+ * All transitions 
+ */
+
+.side, .page
+  -webkit-transition -webkit-transform 0.6s
+  -moz-transition -moz-transform 0.6s
+  -ms-transition -ms-transform 0.6s
+  -o-transition -o-transform 0.6s
+  transition transform 0.6s
+  background-color #f9f9f9
+
+.overlay
+  vendor('transition', opacity 0.6s, visibility 0.1s 0.6s)
+
+.intro-content
+  -webkit-transition -webkit-transform 0.6s, top 0.6s
+  -moz-transition -moz-transform 0.6s, top 0.6s
+  -ms-transition -ms-transform 0.6s, top 0.6s
+  -o-transition -o-transform 0.6s, top 0.6s
+  transition transform 0.6s, top 0.6s
+
+.intro-content h1, .back
+  vendor('transition', opacity 0.3s)
+
+.reset-layout .page,
+.profiles.open-right .page-left,
+.profiles.open-left .page-right,
+.profiles.close-right .page-left,
+.profiles.close-left .page-right
+  position absolute
+  overflow hidden
+  height 100%
+
+.open-right .page-right,
+.open-left .page-left
+  position relative
+  overflow auto
+  height auto
+
+.profiles.open-right .page-right,
+.profiles.open-left .page-left
+  visibility visible
+  opacity 1
+  vendor('transition', opacity 0.6s)
+
+/** 
+ * Right side open 
+ */
+.open-right .side-left
+  z-index 90
+  vendor('transform', translateX(-100%))
+
+.open-right .side-right
+  z-index 200
+  vendor('transform', translateX(-150%))
+
+.close-right .side-right
+  z-index 300
+
+.open-right .side-right .intro-content
+  vendor('transform', translateY(-50%) translateX(-8%) scale(0.6))
+
+.open-right .page-right
+  vendor('transform', translateX(0%))
+
+/** 
+ * Left side open 
+ */
+.open-left .side-right
+  vendor('transform', translateX(100%))
+
+.open-left .side-left
+  z-index 90
+  vendor('transform', translateX(150%))
+
+.close-left .side-right
+  z-index 200
+
+.open-left .side-left .intro-content
+  vendor('transform', translateY(-50%) translateX(-91%) scale(0.6))
+
+.open-left .page-left
+  vendor('transform', translateX(0%))
+
+
