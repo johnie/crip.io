@@ -57,7 +57,7 @@
                 classie.remove( profiles, 'open-' + dir );
                 classie.add( profiles, 'close-' + dir );
                 page.addEventListener( transEndEventName, onEndTransFn );
-                $(".header").delay(1000).fadeIn('fast');
+                $(".header").delay(500).fadeIn('fast');
             };
  
         profiles.querySelector( 'a.back-left' ).addEventListener( eventtype, backToIntro );
