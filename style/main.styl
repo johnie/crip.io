@@ -124,7 +124,14 @@ body
   vendor('border-radius', 50%)
   background-color $brand-color--darken
   position relative
+  
+  img
+    max-width 100%
+    vendor('border-radius', 50%)
+    opacity 0.8
 
+.no-touch .profile__img
+  
   &:before
     content 'Read more'
     display block
@@ -145,11 +152,6 @@ body
     opacity 0
     visibility hidden
     vendor('transition', opacity 0.4s, visibility 0.1s 0.4s)
-  
-  img
-    max-width 100%
-    vendor('border-radius', 50%)
-    opacity 0.8
 
 .intro-content span
   display block
