@@ -29,19 +29,14 @@ body
   vendor('transform', translateX(-50%))
   z-index 500
   text-align left
-  width 155px
-  vendor('transition', width .5s ease .5s)
+  width 260px
   vendor('user-select', none)
   cursor default
 
-  &.hidden
-    opacity 0
-    visibility hidden
-
 .logo-wrap
   display block
-  width 84px
-  height 84px  
+  width 74px
+  height 74px  
   overflow hidden
   border-radius 50%
   position relative
@@ -50,50 +45,16 @@ body
 
 .logo
   display block
-  width 70px
+  width 62px
   height auto
   position absolute
   left 0
 
 .site-name
   font-weight 500
-  font-size 30px
+  font-size 26px
   color $brand-color
-  line-height 36px
-
-  span
-    opacity 0
-    visibility hidden
-    width 0
-    display inline-block
-    overflow hidden
-    vendor('transition', all .2s .5s)
-    position relative
-    bottom -6px
-
-.header:hover
-  width 300px
-  vendor('transition', .4s ease-out 0)
-
-  .site-name
-    span
-      opacity 1
-      visibility visible
-      width auto
-
-      &:nth-child(1)
-        width 36px
-        margin-right 5px
-
-      &:nth-child(2)
-        width 14px
-        margin-right 5px
-
-      &:nth-child(3)
-        width 5px
-
-      &:nth-child(4)
-        width 80px
+  line-height 40px
 
 /** 
  * Profiles 
@@ -243,8 +204,16 @@ body
   text-decoration none
   visibility hidden
   opacity 0
-  background: -webkit-linear-gradient($brand-color, $brand-color--lighten)
   vendor('border-radius', 50%)
+  background-color $brand-color
+  background -moz-linear-gradient(top,  rgba(132,150,174,1) 0%, rgba(179,190,205,1) 100%)
+  background -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(132,150,174,1)), color-stop(100%,rgba(179,190,205,1)))
+  background -webkit-linear-gradient(top,  rgba(132,150,174,1) 0%,rgba(179,190,205,1) 100%)
+  background -o-linear-gradient(top,  rgba(132,150,174,1) 0%,rgba(179,190,205,1) 100%)
+  background -ms-linear-gradient(top,  rgba(132,150,174,1) 0%,rgba(179,190,205,1) 100%)
+  background linear-gradient(to bottom,  rgba(132,150,174,1) 0%,rgba(179,190,205,1) 100%)
+  filter progid:DXImageTransform.Microsoft.gradient( startColorstr='#8496ae', endColorstr='#b3becd',GradientType=0 )
+
 
   &:hover
     color #f9f9f9
