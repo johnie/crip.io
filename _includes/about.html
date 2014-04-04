@@ -1,0 +1,33 @@
+<section class="about-us">
+  <a href="#" class="info-btn">Info</a>
+  <div class="about-us__wrapper">
+    <div class="inner">
+
+      <article class="about-us__info">
+        {% markdown about.md %}
+      </article>
+
+      <div class="contact-form">
+        <h4 class="form-title"><span>Wow!</span> Wouldn't it be a blast to work together?</h4>
+        <div class="contact-form__inner">
+          <div class="grid">
+            <form action="http://getsimpleform.com/messages?form_api_token=586880a3f96c0dfdbbe2bd4e5375f174" method="post" id="contactForm">
+              <div class="grid__item one-half">
+                <input type="text" name="name" id="nameInput" class="input-field one-whole" placeholder="Charles Francis Xavier">
+              </div>
+              <div class="grid__item one-half">
+                <input type="text" name="email" id="emailInput" class="input-field one-whole" placeholder="professor.xavier@xmen.com">
+              </div>
+              <div class="grid__item one-whole">
+                <textarea name="message" id="messageInput" cols="30" rows="8" class="textarea-field one-whole" placeholder="You, my friends, are a mutants — and I have a need of mutants — desperate need!"></textarea>
+              </div>
+              <div class="grid__item one-whole">
+               <input type="submit" value="Send with Cerebro" class="form-submit one-whole" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

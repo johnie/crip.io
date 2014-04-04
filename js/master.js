@@ -73,3 +73,16 @@
     init();
  
 })();
+
+jQuery(document).ready(function($) {
+  $("#contactForm").submit(function() {
+    $.ajax({
+      dataType: 'jsonp',
+      url: "http://getsimpleform.com/messages/ajax?form_api_token=586880a3f96c0dfdbbe2bd4e5375f174",
+      data: $("#contactForm").serialize()
+    }).done(function() {
+      alert("Thank you, for contacting us");
+    });
+    return false;
+  });
+});

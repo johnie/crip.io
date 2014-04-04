@@ -19,6 +19,15 @@ body
   font-family $base-font-family
   color #111
 
+a
+  color $link-color
+  text-decoration none
+  font-weight 400
+  vendor('transition', color .3s)
+
+  &:hover
+    color $brand-color--darken
+
 /** 
  * Header 
  */
