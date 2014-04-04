@@ -3,7 +3,61 @@
 *------------------------------------*/
 
 .info-btn
-  display none
+  position absolute
+  bottom 100%
+  left 50%
+  vendor('transform', translateX(-50%))
+  background-color $brand-color--darken
+  width 100px
+  height 30px
+  line-height 30px
+  z-index 500
+  text-align center
+  text-transform uppercase
+  color #fff
+  vendor('border-radius', 4px 4px 0 0)
+  vendor('transition', background-color .2s)
+
+  &:hover, &:focus
+    color #fff
+    background-color $brand-color
+
+.close-btn
+  position absolute
+  right 20px
+  top 20px
+  color #fff
+  z-index 500
+  line-height 1
+  text-transform uppercase
+
+  &:hover
+    color #eee
+
+.close-cross
+  position absolute
+  z-index 500
+  width 16px
+  height 16px
+  right 110%
+  top 50%
+  vendor('transform', translateY(-50%))
+
+  &:before, &:after
+    content ''
+    display block
+    position absolute
+    width 100%
+    height 2px
+    z-index 510
+    background-color white
+    top 45%
+
+  &:before
+    vendor('transform', rotate(45deg))
+
+  &:after
+    vendor('transform', rotate(-45deg))
 
 .about-us
   position fixed
@@ -11,10 +65,14 @@
   left 0
   width 100%
   height 100%
-  background-color rgba(0, 0, 0, 0.8)
+  background-color rgba(0, 0, 0, 0.6)
+  vendor('transform', translateY(100%))
   z-index 500
   color #fff
-  overflow hidden
+  vendor('transition', all .3s ease-out)
+  
+body.opened__about-us .about-us
+  vendor('transform', translateY(0%))
 
 .about-us__wrapper
   position absolute
@@ -23,7 +81,7 @@
   bottom 0
   right 0
   overflow scroll
-  padding 25px 10px
+  padding 40px 10px
   
 .inner
   position relative

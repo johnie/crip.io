@@ -36,9 +36,16 @@ gulp.task('html', function() {
     .pipe(livereload());
 });
 
+gulp.task('js', function() {
+  gulp.src(paths.scripts)
+    .pipe(plumber())
+    .pipe(livereload());
+});
+
 gulp.task('watch', function() {
   gulp.watch(paths.style, ['stylus',]);
   gulp.watch('./**/*.php', ['html']);
+  gulp.watch(paths.scripts, ['js']);
 });
 
-gulp.task('default', ['stylus', 'html', 'watch']);
+gulp.task('default', ['stylus', 'html', 'js', 'watch']);

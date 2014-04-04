@@ -13,11 +13,14 @@ html, body, .site
 
 body
   overflow-y scroll
-  background-color #f9f9f9
+  background-color $brand-color--darken
   font-size $base-font-size
   line-height $base-line-height
   font-family $base-font-family
   color #111
+
+  &.opened__about-us
+    overflow hidden
 
 a
   color $link-color
@@ -27,6 +30,16 @@ a
 
   &:hover
     color $brand-color--darken
+
+.site
+  background-color #f9f9f9
+  vendor('transition', all .4s)
+  vendor('transform', translateY(0%) scale(1))  
+
+body.opened__about-us .site
+  vendor('transform', translateY(50%) scale(0.9))
+  position absolute
+  vendor('box-shadow', 0 0 50px darken($brand-color--darken, 10%))
 
 /** 
  * Header 

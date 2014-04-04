@@ -74,6 +74,20 @@
  
 })();
 
+function aboutUs(clicker, classer, closer) {
+    $(clicker).click(function(e) {
+        e.preventDefault();
+
+        $("body").toggleClass(classer);
+    });
+
+    $(closer).click(function(e) {
+        e.preventDefault();
+
+        $("body").removeClass(classer);
+    });
+}
+
 jQuery(document).ready(function($) {
   $("#contactForm").submit(function() {
     $.ajax({
@@ -85,4 +99,6 @@ jQuery(document).ready(function($) {
     });
     return false;
   });
+
+  aboutUs('.info-btn', 'opened__about-us', '.close-btn');
 });
