@@ -13,7 +13,7 @@ html, body, .site
 
 body
   overflow-y scroll
-  background-color $brand-color--darken
+  background-color #f9f9f9
   font-size $base-font-size
   line-height $base-line-height
   font-family $base-font-family
@@ -21,6 +21,7 @@ body
 
   &.opened__about-us
     overflow hidden
+    background-color $brand-color--darken
 
 a
   color $link-color
@@ -34,7 +35,8 @@ a
 .site
   background-color #f9f9f9
   vendor('transition', all .4s)
-  vendor('transform', translateY(0%) scale(1))  
+  vendor('transform', translateY(0%) scale(1))
+  clearfix()
 
 body.opened__about-us .site
   vendor('transform', translateY(50%) scale(0.9))

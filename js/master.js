@@ -40,6 +40,7 @@
             reset();
             classie.add( profiles, 'open-right' );
             $(".header").fadeOut('fast');
+            $(".info-btn").fadeOut('fast');
         } );
  
         // back to intro
@@ -58,6 +59,7 @@
                 classie.add( profiles, 'close-' + dir );
                 page.addEventListener( transEndEventName, onEndTransFn );
                 $(".header").delay(500).fadeIn('fast');
+                $(".info-btn").delay(500).fadeIn('fast');
             };
  
         profiles.querySelector( 'a.back-left' ).addEventListener( eventtype, backToIntro );
