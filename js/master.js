@@ -90,17 +90,40 @@ function aboutUs(clicker, classer, closer) {
     });
 }
 
-jQuery(document).ready(function($) {
-  $("#contactForm").submit(function() {
-    $.ajax({
-      dataType: 'jsonp',
-      url: "http://getsimpleform.com/messages/ajax?form_api_token=586880a3f96c0dfdbbe2bd4e5375f174",
-      data: $("#contactForm").serialize()
-    }).done(function() {
-      alert("Thank you, for contacting us");
-    });
-    return false;
-  });
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+};
 
-  aboutUs('.info-btn', 'opened__about-us', '.close-btn');
+function submitForm() {
+    $("#submit").prop('disabled', true);
+
+    $("#contactForm").bind("keyup change", function(e){
+
+    var email = $("#emailInput").val();
+
+        if( email != 0 ) {
+          if ( isValidEmailAddress(email) ) {
+            $("#submit").prop('disabled', false);
+          } else {
+            $("#submit").prop('disabled', true);
+          }
+        }
+    });
+
+    $("#contactForm").submit(function() {
+        $.ajax({
+          dataType: 'jsonp',
+          url: "http://getsimpleform.com/messages/ajax?form_api_token=586880a3f96c0dfdbbe2bd4e5375f174",
+          data: $("#contactForm").serialize()
+        }).done(function() {
+          $("#submit").addClass('success').val("We'll keep in touch, human.")
+        });
+        return false;
+    });
+}
+
+jQuery(document).ready(function($) {
+    submitForm();
+    aboutUs('.info-btn', 'opened__about-us', '.close-btn');
 });
